@@ -1,0 +1,20 @@
+header {
+    border: 3px solid;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 4rem;
+    display: flex;
+}
+
+header img {
+    border: 3px solid;
+    max-height: 100%;
+}
+
+.topnav {
+    border: 3px solid;
+    margin: auto;
+    
+}
+
