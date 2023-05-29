@@ -1,12 +1,12 @@
 import {react} from 'react';
 import './App.css'
-import { PageDetails } from './pages/details/PageDetails'
+import { DetailsPage} from './pages/details/DetailsPage'
 
 function App() {
   
 
   return (
-     <PageDetails/>
+     <DetailsPage/>
   )
 }
 
