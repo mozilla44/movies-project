@@ -1,11 +1,16 @@
-import React from 'react';
-import './App.css';
-import { MovieCard } from './pages/homepage/components/MovieCard';
+import React from "react";
+import { MovieCard } from "./pages/homepage/components/MovieCard";
+import "./App.css";
+import { DetailsPage } from "./pages/details/DetailsPage";
 
-const App = () =>{
+const App = () => {
   return (
-    <MovieCard />
+    <div>
+      <MovieCard />
+
+      <DetailsPage />
+    </div>
   );
-}
+};
 
 export default App;
