@@ -1,13 +1,16 @@
-import {react} from 'react';
-import './App.css'
-import { DetailsPage} from './pages/details/DetailsPage'
+import React from "react";
+import { MovieCard } from "./pages/homepage/components/MovieCard";
+import "./App.css";
+import { DetailsPage } from "./pages/details/DetailsPage";
 
-function App() {
-  
-
+const App = () => {
   return (
-     <DetailsPage/>
-  )
-}
+    <div>
+      <MovieCard />
 
-export default App
+      <DetailsPage />
+    </div>
+  );
+};
+
+export default App;
