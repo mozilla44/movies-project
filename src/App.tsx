@@ -1,4 +1,4 @@
-import {react} from 'react';
+import React from 'react';
 import './App.css'
 import { DetailsPage} from './pages/details/DetailsPage'
 
