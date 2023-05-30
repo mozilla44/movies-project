@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { DetailsPage } from "./pages/details/DetailsPage";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
@@ -10,36 +10,31 @@ import "./App.css";
 
 const App = () => {
   const [movies, setMovies] = useState<MovieType[]>([]);
+  const showDetailsPage = false;
 
   useEffect(() => {
-    // Define an asynchronous function called getMovies
     const getMovies = async () => {
       try {
-        // Call the getAll function to fetch the movies
         const moviesData = await getAll();
-
-        // Update the movies state with the retrieved data
         setMovies(moviesData);
       } catch (error) {
-        // Log any errors that occur during the fetching or updating process
         console.error("Failed to fetch movies:", error);
       }
     };
 
-    // Call the getMovies function when the component mounts
-    // The empty dependency array [] ensures that the effect runs only once
     getMovies();
   }, []);
 
   return (
     <div>
       <Header />
-        <Route path="/">
-          <MoviesList movies={movies} />
-        </Route>
-        {/* <Route path="/details/:id"> 
-          <DetailsPage /> 
-        </Route> */}
+      <Routes>
+        <Route path="/" element={<MoviesList movies={movies} />} />
+        {/* <Route
+          path="/details/:id"
+          element={<DetailsPage show={showDetailsPage} />}
+        /> */}
+      </Routes>
       <Footer />
     </div>
   );
