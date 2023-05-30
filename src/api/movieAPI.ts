@@ -6,7 +6,7 @@ const API_KEY = import.meta.env.VITE_API_KEY as string;
 export const getAll = async (): Promise<MovieType[]> => {
   try {
     // Construct the URL to fetch all movies
-    const allMoviesURL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=fr-FR`;
+    const allMoviesURL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US`;
 
     // Send a GET request to the API and await the response
     const response = await axios.get<{ results: MovieType[] }>(allMoviesURL);
