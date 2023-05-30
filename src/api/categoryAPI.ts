@@ -9,13 +9,13 @@ export const getCategories = async (): Promise<Category[]> => {
     const allMoviesURL = `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`;
 
     // Send a GET request to the API and await the response
-    const response = await axios.get<{ results: Category[] }>(allMoviesURL);
+    const response = await axios.get<{ genres: Category[] }>(allMoviesURL);
 
     // Log the movie results to the console
-    console.log(response.data.results);
+    console.log(response.data.genres);
 
     // Return the list of categories
-    return response.data.results;
+    return response.data.genres;
   } catch (error) {
     // Log any errors that occur during the request or response handling
     console.log(error);
