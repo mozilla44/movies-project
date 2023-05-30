@@ -7,6 +7,8 @@ import { Footer } from "./components/Footer";
 import { getAll } from "./api/movieAPI";
 import { MoviesList } from "./pages/homepage/components/MoviesList";
 import { MovieType } from "./models/Movie";
+import { Category } from "./models/Categories";
+import { CategoriesList } from "./pages/homepage/components/CategoriesList";
 
 
 const App = () => {
