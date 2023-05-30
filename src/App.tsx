@@ -58,8 +58,9 @@ const App = () => {
 
   return (
     <div>
-      <CategoriesList categories={categories}/>
+      
       <Header />
+      <CategoriesList categories={categories}/>
       <MoviesList movies={movies} />
       
       <Footer />
