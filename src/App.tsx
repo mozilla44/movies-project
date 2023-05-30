@@ -8,6 +8,7 @@ import { getAll } from "./api/movieAPI";
 import { MoviesList } from "./pages/homepage/components/MoviesList";
 import { MovieType } from "./models/Movie";
 
+
 const App = () => {
   const [movies, setMovies] = useState<MovieType[]>([]);
 
