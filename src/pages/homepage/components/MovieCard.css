@@ -6,7 +6,7 @@
   align-items: center;
   gap: 16px;
   max-width: 1400px;
-  margin: 0 auto;
+  margin: 0px auto;
   padding: 20px 10px;
 }
 
@@ -19,8 +19,12 @@
   margin: 10px;
 }
 
+.movie-container:nth-child(-n+3) {
+  margin-top:65px;
+}
+
 .movie-card:hover{
- background-color: ;
+ background-color: lightblue;
 }
 
 .movie-card .image {
