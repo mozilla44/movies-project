@@ -6,9 +6,9 @@ type CategoryBtnProps = {
 
 export const CategoryBtn = ({category}: CategoryBtnProps) => {
     return (
-        <button>
+        <button className="category_btn">
             {category.name}
-            {category.id}
+            
         </button>
     );
 }

@@ -1,5 +1,6 @@
 header {
   /* border: 3px solid; */
+  display: none !important;
   background-color: rgb(31, 33, 33);
   position: fixed;
   top: 0;
