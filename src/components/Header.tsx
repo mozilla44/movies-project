@@ -10,6 +10,10 @@ import { CategoriesList } from "../pages/homepage/components/CategoriesList";
 
 export const Header = () => {
   const [categories, setCategories] = useState<Category[]>([]);
+  const [isOpen, setIsOpen] = useState(false);
+  const Toggle = () => {
+    setIsOpen((isOpen) => !isOpen);
+  }
 
   useEffect(() => {
     const getCat = async () => {
@@ -30,19 +34,24 @@ export const Header = () => {
       <img src="/logo.png" className="logo" alt="logo"></img>
         <nav className="topnav">
           <button>Trending</button>
-          <button /* onClick={getCategories()} */>Categories</button>
+          <button onClick={Toggle}>Categories</button>
           <button>Upcoming</button>
         </nav>
         <div className="searchbar">
-          <form action="" className="search_form">
-            <input type="search" required />
-            <i className="fa fa-search"></i>
-            <a /* href="javascript:void(0)" */ id="clear-btn">
-            </a>
-          </form>
+          
         </div>
-        <CategoriesList categories={categories}/>
+        {isOpen && <CategoriesList categories={categories}/>}
+        
     </header>
     
   );
 };
+
+
+
+{/* <form action="" className="search_form">
+            <input type="search" required />
+            <i className="fa fa-search"></i>
+            <a id="clear-btn">
+            </a>
+          </form> */}
