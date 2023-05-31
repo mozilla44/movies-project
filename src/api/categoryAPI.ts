@@ -24,3 +24,4 @@ export const getCategories = async (): Promise<Category[]> => {
     throw new Error("Failed to fetch categories"); // or handle the error accordingly
   }
 };
+
