@@ -1,6 +1,4 @@
-import { Link, Routes, Route, BrowserRouter } from "react-router-dom";
 import "./Header.css";
-import { Footer } from "./Footer";
 import { getCategories } from "../api/categoryAPI";
 import { useEffect,useState } from "react";
 import { Category } from "../models/Categories";

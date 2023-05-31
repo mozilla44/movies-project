@@ -1,6 +1,6 @@
 import { Category } from "../../../models/Categories";
 import { MovieType } from "../../../models/Movie";
-import { fetchMoviesByCategory } from "../../../api/categoryAPI";
+import { fetchMoviesByCategory } from "../../../api/movieAPI";
 
 type CategoryBtnProps = {
     category: Category
