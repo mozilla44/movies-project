@@ -4,7 +4,7 @@ import  axios  from "axios";
 
 type CategoryBtnProps = {
     category: Category
-    moove:MovieType
+    movie:MovieType
 }
 
 
@@ -20,7 +20,6 @@ export const CategoryBtn = ({category}: CategoryBtnProps) => {
             console.log(error);
             throw new Error("Failed to fetch categories"); 
           }
-        
       };
     return (
         <button className="category_btn" onClick={()=>fetchMoviesByCategory(category.id)}>
