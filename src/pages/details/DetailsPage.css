@@ -1,9 +1,5 @@
-*{
-display: none;
-min-width: 100px;
-}
 
-body{
+/* body{
 	max-width: 1592px;
 	margin: 0;
 	padding: 0;
@@ -12,7 +8,7 @@ body{
 	background-color:rgb(67, 73, 67);
 	
 
-}
+} */
 
 .movie-container{
 	width: 100%;
