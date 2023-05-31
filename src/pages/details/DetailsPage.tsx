@@ -1,9 +1,11 @@
 import React from "react";
 import "./DetailsPage.css";
+import { useParams } from "react-router-dom";
 
 
 
 export const DetailsPage = () => {
+  const { movieId } = useParams();
   const imgMovie ="https://imageio.forbes.com/specials-images/imageserve/61116cea2313e8bae55a536a/-Dune-/0x0.jpg?format=jpg&width=960";
   const titleMovie ="Dune";
   const directorMovie = "Writer/Director";
@@ -12,6 +14,7 @@ export const DetailsPage = () => {
   const lenghtMovie = "Movie Lenght";
   const ratingMovie = "Rating";
   const plotMovie =" Hae duae provinciae bello quondam piratico catervis mixtae praedonum a Servilio pro consule missae sub iugum factae sunt vectigales. et hae quidem regiones velut in prominenti terrarum lingua positae ob orbe eoo monte Amano disparantur."
+  
   return (
     <div className="movie-container">
       <img src={imgMovie} alt="Dune" className="movie-card" />

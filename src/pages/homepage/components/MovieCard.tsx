@@ -1,6 +1,6 @@
 import React from "react";
 import { MovieType } from "../../../models/Movie";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./MovieCard.css";
 import { AiFillStar } from "react-icons/ai";
 
@@ -15,7 +15,7 @@ export const MovieCard = ({ movie }: MovieCardProps) => {
   const location = useLocation();
 
   return (
-    <div className="movie-container">
+    <Link to={`/details/${movie.id}`} className="movie-container">
       <div className="movie-card">
         <img src={imageUrl} alt={movie.title} className="movie-image" />
         <h3 className="movie-title">{movie.title}</h3>
@@ -29,6 +29,6 @@ export const MovieCard = ({ movie }: MovieCardProps) => {
 
         <p className="movie-id"> ID: {movie.id}</p>
       </div>
-    </div>
+    </Link>
   );
 };
