@@ -1,37 +1,36 @@
 import React from "react";
 import "./DetailsPage.css";
-import { useParams } from "react-router-dom";
 
 
-
+// fetch les films par id dans le DetailsPage.
 export const DetailsPage = () => {
-  const { movieId } = useParams();
-  const imgMovie ="https://imageio.forbes.com/specials-images/imageserve/61116cea2313e8bae55a536a/-Dune-/0x0.jpg?format=jpg&width=960";
-  const titleMovie ="Dune";
-  const directorMovie = "Writer/Director";
-  const releaseMovie = "Release Date";
-  const genresMovie = "Genres"; 
-  const lenghtMovie = "Movie Lenght";
-  const ratingMovie = "Rating";
-  const plotMovie =" Hae duae provinciae bello quondam piratico catervis mixtae praedonum a Servilio pro consule missae sub iugum factae sunt vectigales. et hae quidem regiones velut in prominenti terrarum lingua positae ob orbe eoo monte Amano disparantur."
-  
+
+  const imgPage =
+    "https://imageio.forbes.com/specials-images/imageserve/61116cea2313e8bae55a536a/-Dune-/0x0.jpg?format=jpg&width=960";
+  const titlePage = "Dune";
+  const directorPage = "Writer/Director";
+  const releasePage = "Release Date";
+  const genresPage = "Genres";
+  const lenghtPage = "Movie Lenght";
+  const ratingPage = "Rating";
+  const plotPage =
+    " Hae duae provinciae bello quondam piratico catervis mixtae praedonum a Servilio pro consule missae sub iugum factae sunt vectigales. et hae quidem regiones velut in prominenti terrarum lingua positae ob orbe eoo monte Amano disparantur.";
+
   return (
-    <div className="movie-container">
-      <img src={imgMovie} alt="Dune" className="movie-card" />
-      <section className="movie-description-container">
-        <title className="movie-card-title"> {titleMovie}</title>
-        <div className="movie-card-writer">{directorMovie} </div>
+    <div className="page-container">
+      <img src={imgPage} alt="Dune" className="page-card" />
+      <section className="page-description-container">
+        <title className="page-card-title"> {titlePage}</title>
+        <div className="page-card-writer">{directorPage} </div>
         <br></br>
-        <section className="movie-caracteristics">
-          <div className="movie-card-release">{releaseMovie} </div>
-          <div className="movie-card-genres">{genresMovie}</div>
-          <div className="movie-card-lenght">{lenghtMovie}</div>
+        <section className="page-caracteristics">
+          <div className="page-card-release">{releasePage} </div>
+          <div className="page-card-genres">{genresPage}</div>
+          <div className="page-card-lenght">{lenghtPage}</div>
         </section>
 
-        <div className="movie-card-rating">{ratingMovie}</div>
-        <article className="movie-card-synopsis">
-        {plotMovie}
-        </article>
+        <div className="page-card-rating">{ratingPage}</div>
+        <article className="page-card-synopsis">{plotPage}</article>
       </section>
     </div>
   );
