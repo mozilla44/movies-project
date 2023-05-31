@@ -3,7 +3,6 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
   gap: 16px;
   max-width: 1400px;
   margin: 0px auto;
@@ -19,15 +18,11 @@
   margin: 10px;
 }
 
-.movie-container:nth-child(-n+3) {
-  margin-top:65px;
-}
-
 .movie-card:hover{
  background-color: lightblue;
 }
 
-.movie-card .image {
+.movie-card .movie-image {
   width: 100%;
   max-width: 350px;
   height: 300px;
@@ -35,12 +30,16 @@
   border-radius: 10px;
 }
 
-.movie-card .title {
+.movie-card .movie-title {
   margin-top: 10px;
   font-size: 18px;
 }
 
-.movie-card .score {
+.movie-card p{
+  margin: 5px;
+}
+
+.movie-card .movie-score {
   margin-top: 5px;
   font-size: 14px;
 }

@@ -25,15 +25,15 @@ export const getAll = async (): Promise<MovieType[]> => {
   }
 };
 
-// export const getAll = async () => {
-//   const allMoviesURL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=fr-FR`;
-//   return axios
-//     .get<{ results: MovieType[] }>(allMoviesURL)
-//     .then((response) => {
-//       console.log(response.data.results);
-//       return response.data.results;
-//     })
-//     .catch((error) => {
-//       console.log(error);
-//     });
-// };
+export const getUpcoming = async (): Promise<MovieType[]> => {
+  try {
+    const upcomingMoviesURL = `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US`;
+    const response = await axios.get<{ results: MovieType[] }>(
+      upcomingMoviesURL
+    );
+    return response.data.results;
+  } catch (error) {
+    console.log(error);
+    throw new Error("Failed to fetch upcoming movies");
+  }
+};

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import "./Header.css";
 import { Footer } from "./Footer";
+
 export const Header = () => {
   return (
     <header className="header">
@@ -11,6 +12,7 @@ export const Header = () => {
           <Link to="/categories">Categories</Link>
           <Link to="/upcoming">Upcoming</Link>
         </nav>
+
         <div className="searchbar">
           <form action="" className="search_form">
             <input type="search" required />
@@ -19,6 +21,7 @@ export const Header = () => {
             </a>
           </form>
         </div>
+        
       <Footer/>
     </header>
     
