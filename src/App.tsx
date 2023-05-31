@@ -11,7 +11,6 @@ import "./App.css";
 const App = () => {
   const [movies, setMovies] = useState<MovieType[]>([]);
   // const showDetailsPage = false;
-
   const [upcomingMovies, setUpcomingMovies] = useState<MovieType[]>([]);
 
   const getUpcomingMovies = async () => {
@@ -32,7 +31,6 @@ const App = () => {
         console.error("Failed to fetch movies:", error);
       }
     };
-
     getMovies();
     getUpcomingMovies();
   }, []);
