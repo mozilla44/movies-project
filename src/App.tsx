@@ -8,15 +8,13 @@ import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 
 const App = () => {
-
-
   return (
     <div>
       <BrowserRouter>
-      <Header />
+        <Header />
         <Routes>
-          <Route path="/" element={<HomePage />}/>
-          <Route path="/details/:movieId" element={<DetailsPage />}/>
+          <Route path="" element={<HomePage />} />
+          <Route path="/details/:movieId" element={<DetailsPage />} />
         </Routes>
         <Footer />
       </BrowserRouter>
