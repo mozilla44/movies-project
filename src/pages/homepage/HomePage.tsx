@@ -3,6 +3,8 @@ import { getUpcoming, getAll } from "../../api/movieAPI";
 import { MovieType } from "../../models/Movie";
 import { MoviesList } from "./components/MoviesList";
 
+
+
 const HomePage = () => {
   const [movies, setMovies] = useState<MovieType[]>([]);
   // const showDetailsPage = false;
@@ -21,6 +23,7 @@ const HomePage = () => {
     getMovies();
     getUpcomingMovies();
   }, []);
+
   return (
     <>
       <MoviesList movies={movies} />
