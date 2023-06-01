@@ -3,6 +3,7 @@ import { useState,useEffect } from "react";
 import { Category } from "../models/Categories";
 import { MovieType } from "../models/Movie";
 import { getCategories } from "../api/categoryAPI";
+import { CategoriesList } from "../pages/homepage/components/CategoriesList";
 // import "./Header.css";
 
 export const Header = () => {
@@ -32,12 +33,13 @@ export const Header = () => {
 
         <nav className="topnav">
           <Link to="/">Trending</Link>
-          <Link to="/categories">Categories</Link>
+          <button onClick={Toggle}>Categories</button>
           <Link to="/upcoming">Upcoming</Link>
         </nav>
 
         <div className="searchbar">
-          
+        {isOpen && <CategoriesList categories={categories}/>}
+
         </div>
         
     </header>
