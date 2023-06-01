@@ -2,7 +2,7 @@ import React from "react";
 import "./MoviesList.css";
 import { MovieCard } from "./MovieCard";
 import { MovieType } from "../../../models/Movie";
-import DetailsPage from "../../details/DetailsPage";
+
 
 type MoviesListProps = {
   movies: MovieType[];
