@@ -1,42 +1,56 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { getUpcoming, getAll } from "../../api/movieAPI";
+import { getAll, getUpcoming, getSearched } from "../../api/movieAPI";
 import { MovieType } from "../../models/Movie";
 import { MoviesList } from "./components/MoviesList";
+import { SearchBar } from "./components/SearchBar";
 
 const HomePage = () => {
   const [movies, setMovies] = useState<MovieType[]>([]);
   const [upcomingMovies, setUpcomingMovies] = useState<MovieType[]>([]);
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  
   const location = useLocation();
 
   const getUpcomingMovies = async () => {
-    try {
-      const upcomingMoviesData = await getUpcoming();
-      setUpcomingMovies(upcomingMoviesData);
-    } catch (error) {
-      console.error("Failed to fetch upcoming movies:", error);
-    }
+    const upcomingMoviesData = await getUpcoming();
+    setUpcomingMovies(upcomingMoviesData);
   };
 
   useEffect(() => {
     const getMovies = async () => {
-      try {
-        const moviesData = await getAll();
-        setMovies(moviesData);
-      } catch (error) {
-        console.error("Failed to fetch movies:", error);
-      }
+      const moviesData = await getAll();
+      setMovies(moviesData);
     };
     getMovies();
     getUpcomingMovies();
   }, []);
 
+  useEffect(() => {
+    const fetchMoviesBySearch = async () => {
+      if (searchQuery) {
+        const moviesData = await getSearched(searchQuery);
+        if (moviesData != null && moviesData.length > 0) {
+          setMovies(moviesData);
+        }
+      }
+    };
+
+    fetchMoviesBySearch();
+  }, [searchQuery]);
+
+
   return (
     <div>
+      <SearchBar onSearch={setSearchQuery} />
+
       {location.pathname === "/" && <MoviesList movies={movies} />}
+
       {location.pathname === "/upcoming" && (
         <MoviesList movies={upcomingMovies} />
       )}
+
+      {searchQuery.length > 0 && <MoviesList movies={movies} />}
     </div>
   );
 };

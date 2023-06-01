@@ -1,29 +1,20 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import "./SearchBar.css";
 
-export const SearchBar = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const navigate = useNavigate();
+type SearchBarProps = {
+  onSearch: (query: string) => void;
+};
 
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (searchTerm.trim()) {
-      // Redirect to search results page
-      navigate(`/search?q=${searchTerm}`);
-    }
-  };
+export const SearchBar = ({onSearch}: SearchBarProps) => {
 
   return (
     <div className="searchbar">
-      <form className="search_form" onSubmit={handleSearch}>
+      <form className="search-form">
         <input
           type="search"
           required
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
+          onChange={(e) => onSearch(e.target.value)}
+          placeholder="Search..."
         />
-        <i className="fa fa-search"></i>
-        <a id="clear-btn"></a>
       </form>
     </div>
   );
