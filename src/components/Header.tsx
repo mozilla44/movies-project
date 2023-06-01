@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import "./Header.css";
-import { Footer } from "./Footer";
+// import "./Header.css";
 
 export const Header = () => {
   return (
@@ -22,7 +21,6 @@ export const Header = () => {
           </form>
         </div>
         
-      <Footer/>
     </header>
     
   );
