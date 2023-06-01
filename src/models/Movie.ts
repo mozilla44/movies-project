@@ -3,4 +3,5 @@ export interface MovieType {
   title: string;
   poster_path: string;
   popularity: number;
+  release_date: string;
 }

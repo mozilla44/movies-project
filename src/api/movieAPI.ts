@@ -22,6 +22,18 @@ export const getAll = async (): Promise<MovieType[]> => {
   }
 };
 
+export const getUpcoming = async (): Promise<MovieType[]> => {
+  try {
+    const upcomingMoviesURL = `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US`;
+    const response = await axios.get<{ results: MovieType[] }>(
+      upcomingMoviesURL
+    );
+    return response.data.results;
+  } catch (error) {
+    console.log(error);
+    throw new Error("Failed to fetch upcoming movies");
+  }
+};
 export const fetchMoviesByCategory = async (
   categoryId: number
 ): Promise<MovieType[]> => {

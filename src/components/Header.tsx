@@ -1,10 +1,9 @@
-import "./Header.css";
-import { getCategories } from "../api/categoryAPI";
-import { useEffect,useState } from "react";
+import { Link } from "react-router-dom";
+import { useState,useEffect } from "react";
 import { Category } from "../models/Categories";
-import { CategoriesList } from "../pages/homepage/components/CategoriesList";
-
-
+import { MovieType } from "../models/Movie";
+import { getCategories } from "../api/categoryAPI";
+// import "./Header.css";
 
 export const Header = () => {
   const [categories, setCategories] = useState<Category[]>([]);
@@ -30,15 +29,16 @@ export const Header = () => {
     
     <header className="header">
       <img src="/logo.png" className="logo" alt="logo"></img>
+
         <nav className="topnav">
-          <button>Trending</button>
-          <button onClick={Toggle}>Categories</button>
-          <button>Upcoming</button>
+          <Link to="/">Trending</Link>
+          <Link to="/categories">Categories</Link>
+          <Link to="/upcoming">Upcoming</Link>
         </nav>
+
         <div className="searchbar">
           
         </div>
-        {isOpen && <CategoriesList categories={categories}/>}
         
     </header>
     
