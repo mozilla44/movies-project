@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Category } from "../models/Categories";
 import { MovieType } from "../models/Movie";
 import { getCategories } from "../api/categoryAPI";
 import { CategoriesList } from "../pages/homepage/components/CategoriesList";
+import logo from "/images/logo.png";
 import "./Header.css";
 
 export const Header = () => {
@@ -29,7 +30,7 @@ export const Header = () => {
   return (
     
     <header className="header">
-      <img src="/logo.png" className="logo" alt="logo"></img>
+      <img src={logo} className="logo" alt="logo"></img>
 
         <nav className="topnav">
           <Link to="/">Trending</Link>
@@ -37,21 +38,7 @@ export const Header = () => {
           <Link to="/upcoming">Upcoming</Link>
         </nav>
 
-        <div className="searchbar">
-        {/* {isOpen && <CategoriesList categories={categories}/>} */}
-
-        </div>
-        
     </header>
     
   );
 };
-
-
-
-{/* <form action="" className="search_form">
-            <input type="search" required />
-            <i className="fa fa-search"></i>
-            <a id="clear-btn">
-            </a>
-          </form> */}
