@@ -6,6 +6,8 @@ import { CategoriesList } from "./components/CategoriesList";
 import { Category } from "../../models/Categories";
 import { getCategories } from "../../api/categoryAPI";
 
+
+
 const HomePage = () => {
   const [movies, setMovies] = useState<MovieType[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
