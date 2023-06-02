@@ -52,3 +52,15 @@ export const getSearched = async (query: string): Promise<MovieType[]> => {
     throw new Error("Failed to fetch searched movies");
   }
 };
+
+
+export const getMovieById = async (movieId:string|undefined) => {
+  try{
+    const movieByIdUrl = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=en-US`
+    const response = await axios.get<MovieType>(movieByIdUrl);
+    return response.data;
+  } catch (error){
+    console.log(error)
+    throw new Error("Failed to fetch movie object")
+  }
+}

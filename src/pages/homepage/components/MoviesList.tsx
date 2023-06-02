@@ -3,6 +3,7 @@ import "./MoviesList.css";
 import { MovieCard } from "./MovieCard";
 import { MovieType } from "../../../models/Movie";
 
+
 type MoviesListProps = {
   movies: MovieType[];
 };
