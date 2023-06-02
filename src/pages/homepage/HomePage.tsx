@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { getUpcoming, getAll, fetchMoviesByCategory, getSearched } from "../../api/movieAPI";
@@ -15,10 +16,11 @@ const HomePage = () => {
   const [movies, setMovies] = useState<MovieType[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
   const [categoryId,setCategoryId] = useState<number|null>(null);
+
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [upcomingMovies, setUpcomingMovies] = useState<MovieType[]>([]);
-  
   const location = useLocation();
+
 
   const getSortedMovies = async () => {
     if (categoryId != null) {
@@ -74,16 +76,15 @@ const HomePage = () => {
     fetchMoviesBySearch();
   }, [searchQuery]);
 
-  
-
   return (
     <div>
-      <div className="categories-list">
+      
+            <div className="categories-list">
                 {categories.map(category => (
                     <CategoryBtn key={category.id} category={category} setCategoryId={setCategoryId} />
                 ))}
             </div>
-
+      
       <SearchBar onSearch={setSearchQuery} />
 
       {location.pathname === "/" && <MoviesList movies={movies} />}
@@ -98,7 +99,6 @@ const HomePage = () => {
       {searchQuery.length > 0 && <MoviesList movies={movies} />}
 
     </div>
-   
   );
 };
 

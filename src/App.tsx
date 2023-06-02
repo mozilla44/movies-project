@@ -1,11 +1,10 @@
-import React from "react";
 import HomePage from "./pages/homepage/HomePage";
 import DetailsPage from "./pages/details/DetailsPage";
-import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
+import "./App.css";
+
 
 
 const App = () => {
@@ -14,7 +13,7 @@ const App = () => {
       <BrowserRouter>
         <Header />
         <Routes>
-        <Route
+          <Route
             path="/*"
             element={<HomePage />}
           />
