@@ -36,15 +36,6 @@
     font-size: 1.2em;
   }
   
-  .search-form:focus-within #clear-btn {
-    display: block;
-  }
-  display: flex;
-  justify-content: center;
-  position: relative;
-  margin-top: 10%;
-}
-
 .search-form {
   width: 200px;
   height: 40px;

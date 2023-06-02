@@ -77,17 +77,3 @@ export const getMovieById = async (movieId:string|undefined) => {
   }
 }
 
-export const getSearched = async (query: string): Promise<MovieType[]> => {
-  try {
-    const searchMoviesURL = `https://api.themoviedb.org/3/search/movie?query=${query}&api_key=${API_KEY}&language=en-US`;
-
-    const response = await axios.get<{ results: MovieType[] }>(searchMoviesURL);
-
-    console.log("Search response:", response.data.results);
-
-    return response.data.results;
-  } catch (error) {
-    console.log(error);
-    throw new Error("Failed to fetch searched movies");
-  }
-};
