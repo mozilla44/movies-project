@@ -4,7 +4,7 @@ import { Category } from "../models/Categories";
 import { MovieType } from "../models/Movie";
 import { getCategories } from "../api/categoryAPI";
 import { CategoriesList } from "../pages/homepage/components/CategoriesList";
-// import "./Header.css";
+import "./Header.css";
 
 export const Header = () => {
   const [categories, setCategories] = useState<Category[]>([]);
@@ -38,7 +38,7 @@ export const Header = () => {
         </nav>
 
         <div className="searchbar">
-        {isOpen && <CategoriesList categories={categories}/>}
+        {/* {isOpen && <CategoriesList categories={categories}/>} */}
 
         </div>
         

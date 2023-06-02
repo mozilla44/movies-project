@@ -3,4 +3,5 @@ export interface Category {
     name: string;
     genres: string
     show?:boolean
+    
 }

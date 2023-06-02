@@ -5,13 +5,14 @@ import { MovieType } from "../../../models/Movie";
 
 type MoviesListProps = {
   movies: MovieType[];
+
 };
 
-export const MoviesList = ({ movies }: MoviesListProps) => {
+export const MoviesList = ({ movies,}: MoviesListProps) => {
   return (
     <div className="movies-list-container">
       {movies.map((movie) => (
-        <MovieCard key={movie.id} movie={movie} />
+        <MovieCard key={movie.id} movie={movie}  />
       ))}
     </div>
   );
