@@ -9,7 +9,7 @@ import "./Header.css";
 
 export const Header = () => {
   const [categories, setCategories] = useState<Category[]>([]);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const Toggle = () => {
     setIsOpen((isOpen) => !isOpen);
   }

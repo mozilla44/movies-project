@@ -1,25 +1,14 @@
-<<<<<<< HEAD
-import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import { getAll, getUpcoming, getSearched } from "../../api/movieAPI";
-import { MovieType } from "../../models/Movie";
-import { MoviesList } from "./components/MoviesList";
-import { SearchBar } from "./components/SearchBar";
 
-const HomePage = () => {
-  const [movies, setMovies] = useState<MovieType[]>([]);
-  const [upcomingMovies, setUpcomingMovies] = useState<MovieType[]>([]);
-  const [searchQuery, setSearchQuery] = useState<string>("");
-  
-  const location = useLocation();
-=======
 import React, { useState, useEffect } from "react";
-import { getUpcoming, getAll, fetchMoviesByCategory } from "../../api/movieAPI";
+import { useLocation } from "react-router-dom";
+import { getUpcoming, getAll, fetchMoviesByCategory, getSearched } from "../../api/movieAPI";
 import { MovieType } from "../../models/Movie";
 import { MoviesList } from "./components/MoviesList";
 import { CategoriesList } from "./components/CategoriesList";
 import { Category } from "../../models/Categories";
 import { getCategories } from "../../api/categoryAPI";
+import { SearchBar } from "./components/SearchBar";
+import { CategoryBtn } from "./components/CategoryBtn";
 
 
 
@@ -27,7 +16,11 @@ const HomePage = () => {
   const [movies, setMovies] = useState<MovieType[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
   const [categoryId,setCategoryId] = useState<number|null>(null);
->>>>>>> d01ea55a25e09f69f7f6b152a9528bce47beb920
+
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [upcomingMovies, setUpcomingMovies] = useState<MovieType[]>([]);
+  const location = useLocation();
+
 
   const getSortedMovies = async () => {
     if (categoryId != null) {
@@ -35,6 +28,12 @@ const HomePage = () => {
     setMovies(SortedMoviesData);
     }
   };
+
+  const getUpcomingMovies = async () => {
+    const upcomingMoviesData = await getUpcoming();
+    setUpcomingMovies(upcomingMoviesData);
+  };
+
 
   useEffect(() => {
     getSortedMovies();
@@ -47,6 +46,7 @@ const HomePage = () => {
     };
     getMovies();
     getSortedMovies();
+    getUpcomingMovies();
   }, []);
 
   useEffect(() => {
@@ -76,10 +76,15 @@ const HomePage = () => {
     fetchMoviesBySearch();
   }, [searchQuery]);
 
-
   return (
-<<<<<<< HEAD
     <div>
+      
+            <div className="categories-list">
+                {categories.map(category => (
+                    <CategoryBtn key={category.id} category={category} setCategoryId={setCategoryId} />
+                ))}
+            </div>
+      
       <SearchBar onSearch={setSearchQuery} />
 
       {location.pathname === "/" && <MoviesList movies={movies} />}
@@ -88,14 +93,12 @@ const HomePage = () => {
         <MoviesList movies={upcomingMovies} />
       )}
 
-      {searchQuery.length > 0 && <MoviesList movies={movies} />}
-    </div>
-=======
-    <>
-    <CategoriesList categories={categories}  setCategoryId={setCategoryId}/>
+      <CategoriesList categories={categories}  setCategoryId={setCategoryId}/>
       <MoviesList  movies={movies} />
-    </>
->>>>>>> d01ea55a25e09f69f7f6b152a9528bce47beb920
+
+      {searchQuery.length > 0 && <MoviesList movies={movies} />}
+
+    </div>
   );
 };
 
