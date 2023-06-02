@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { getAll, getUpcoming, getSearched } from "../../api/movieAPI";
@@ -11,11 +12,33 @@ const HomePage = () => {
   const [searchQuery, setSearchQuery] = useState<string>("");
   
   const location = useLocation();
+=======
+import React, { useState, useEffect } from "react";
+import { getUpcoming, getAll, fetchMoviesByCategory } from "../../api/movieAPI";
+import { MovieType } from "../../models/Movie";
+import { MoviesList } from "./components/MoviesList";
+import { CategoriesList } from "./components/CategoriesList";
+import { Category } from "../../models/Categories";
+import { getCategories } from "../../api/categoryAPI";
 
-  const getUpcomingMovies = async () => {
-    const upcomingMoviesData = await getUpcoming();
-    setUpcomingMovies(upcomingMoviesData);
+
+
+const HomePage = () => {
+  const [movies, setMovies] = useState<MovieType[]>([]);
+  const [categories, setCategories] = useState<Category[]>([]);
+  const [categoryId,setCategoryId] = useState<number|null>(null);
+>>>>>>> d01ea55a25e09f69f7f6b152a9528bce47beb920
+
+  const getSortedMovies = async () => {
+    if (categoryId != null) {
+    const SortedMoviesData = await fetchMoviesByCategory(categoryId);
+    setMovies(SortedMoviesData);
+    }
   };
+
+  useEffect(() => {
+    getSortedMovies();
+  }, [categoryId])
 
   useEffect(() => {
     const getMovies = async () => {
@@ -23,7 +46,21 @@ const HomePage = () => {
       setMovies(moviesData);
     };
     getMovies();
-    getUpcomingMovies();
+    getSortedMovies();
+  }, []);
+
+  useEffect(() => {
+    const getCat = async () => {
+      try {
+        const categoriesData = await getCategories();
+
+        setCategories(categoriesData);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getCat();
   }, []);
 
   useEffect(() => {
@@ -41,6 +78,7 @@ const HomePage = () => {
 
 
   return (
+<<<<<<< HEAD
     <div>
       <SearchBar onSearch={setSearchQuery} />
 
@@ -52,6 +90,12 @@ const HomePage = () => {
 
       {searchQuery.length > 0 && <MoviesList movies={movies} />}
     </div>
+=======
+    <>
+    <CategoriesList categories={categories}  setCategoryId={setCategoryId}/>
+      <MoviesList  movies={movies} />
+    </>
+>>>>>>> d01ea55a25e09f69f7f6b152a9528bce47beb920
   );
 };
 

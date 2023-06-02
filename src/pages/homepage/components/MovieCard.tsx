@@ -6,6 +6,7 @@ import { AiFillStar } from "react-icons/ai";
 
 type MovieCardProps = {
   movie: MovieType;
+  
 };
 
 export const MovieCard = ({ movie }: MovieCardProps) => {

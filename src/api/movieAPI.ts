@@ -11,9 +11,6 @@ export const getAll = async (): Promise<MovieType[]> => {
     // Send a GET request to the API and await the response
     const response = await axios.get<{ results: MovieType[] }>(allMoviesURL);
 
-    // Log the movie results to the console
-    console.log(response.data.results);
-
     // Return the list of movies
     return response.data.results;
   } catch (error) {
@@ -37,6 +34,20 @@ export const getUpcoming = async (): Promise<MovieType[]> => {
     throw new Error("Failed to fetch upcoming movies");
   }
 };
+export const fetchMoviesByCategory = async (
+  categoryId: number
+): Promise<MovieType[]> => {
+  try {
+    const URL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=${categoryId}`;
+    const response = await axios.get<{ results: MovieType[] }>(URL);
+    console.log(response.data.results);
+    return response.data.results;
+  } catch (error) {
+    console.log(error);
+    throw new Error("Failed to fetch categories");
+  }
+};
+
 
 export const getSearched = async (query: string): Promise<MovieType[]> => {
   try {
