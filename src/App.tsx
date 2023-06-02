@@ -14,7 +14,10 @@ const App = () => {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="" element={<HomePage />} />
+        <Route
+            path="/*"
+            element={<HomePage />}
+          />
           <Route path="/details/:movieId" element={<DetailsPage />} />
         </Routes>
         <Footer />

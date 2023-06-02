@@ -8,7 +8,7 @@ import "./Header.css";
 
 export const Header = () => {
   const [categories, setCategories] = useState<Category[]>([]);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const Toggle = () => {
     setIsOpen((isOpen) => !isOpen);
   }
@@ -36,22 +36,7 @@ export const Header = () => {
           <button onClick={Toggle}>Categories</button>
           <Link to="/upcoming">Upcoming</Link>
         </nav>
-
-        <div className="searchbar">
-        {/* {isOpen && <CategoriesList categories={categories}/>} */}
-
-        </div>
-        
     </header>
     
   );
 };
-
-
-
-{/* <form action="" className="search_form">
-            <input type="search" required />
-            <i className="fa fa-search"></i>
-            <a id="clear-btn">
-            </a>
-          </form> */}
