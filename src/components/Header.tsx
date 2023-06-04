@@ -1,9 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Category } from "../models/Categories";
-import { MovieType } from "../models/Movie";
 import { getCategories } from "../api/categoryAPI";
-import { CategoriesList } from "../pages/homepage/components/CategoriesList";
 import logo from "/images/logo.png";
 import "./Header.css";
 
@@ -12,7 +10,7 @@ export const Header = () => {
   const [isOpen, setIsOpen] = useState(true);
   const Toggle = () => {
     setIsOpen((isOpen) => !isOpen);
-  }
+  };
 
   useEffect(() => {
     const getCat = async () => {
@@ -28,17 +26,19 @@ export const Header = () => {
     getCat();
   }, []);
   return (
-    
     <header className="header">
-      <img src={logo} className="logo" alt="logo"></img>
+      <Link to="/" className="logo_link">
+        <img src={logo} className="logo" alt="logo"></img>
+      </Link>
 
-        <nav className="topnav">
-          <Link to="/">Trending</Link>
-          <button onClick={Toggle}>Categories</button>
-          <Link to="/upcoming">Upcoming</Link>
-        </nav>
-
+      <nav className="topnav">
+        <Link to="/" className="header_links">
+          Trending
+        </Link>
+        <Link to="/upcoming" className="header_links">
+          Upcoming
+        </Link>
+      </nav>
     </header>
-    
   );
 };

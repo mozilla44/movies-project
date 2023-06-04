@@ -34,4 +34,17 @@ header img {
 .topnav a {
   text-decoration: none;
   color: white;
+  transform: scale(1.1);
+
+}
+
+.header_links{
+  border: 3px solid;
+  padding: 0.3rem 1rem 0.3rem 1rem;
+  border-radius:10px;
+}
+
+.logo_link {
+width: 4rem;
+
 }

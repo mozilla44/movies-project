@@ -4,8 +4,7 @@ footer {
     background-color: black;
     color: white;
     width: 100vw;
-    position: fixed ;
-    bottom: 0;
+    
     height: 3rem;
     display: flex;
     justify-content: center;

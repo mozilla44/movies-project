@@ -10,7 +10,7 @@ type CategoriesListProps = {
 
 export const CategoriesList = ({categories,setCategoryId}: CategoriesListProps) => {
     return (
-            <div className="categories-list">
+            <div className="category_btn_area">
                 {categories.map(category => (
                     <CategoryBtn key={category.id} category={category} setCategoryId={setCategoryId} />
                 ))}
