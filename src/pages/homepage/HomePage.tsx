@@ -13,6 +13,7 @@ import { Category } from "../../models/Categories";
 import { getCategories } from "../../api/categoryAPI";
 import { SearchBar } from "./components/SearchBar";
 import { CategoryBtn } from "./components/CategoryBtn";
+import "./HomePage.css";
 
 const HomePage = () => {
   const [movies, setMovies] = useState<MovieType[]>([]);
@@ -76,7 +77,7 @@ const HomePage = () => {
   }, [searchQuery]);
 
   return (
-    <div>
+    <div className="homepage-container">
       <div className="categories-list">
         {categories.map((category) => (
           <CategoryBtn
