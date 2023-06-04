@@ -87,7 +87,7 @@ const HomePage = () => {
         ))}
       </div>
 
-      <SearchBar whenSearched={setSearchQuery} />
+      {location.pathname === "/" && <SearchBar whenSearched={setSearchQuery} />}
 
       {location.pathname === "/" && <MoviesList movies={movies} />}
 
