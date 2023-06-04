@@ -43,6 +43,12 @@ header img {
   padding: 0.3rem 1rem 0.3rem 1rem;
   border-radius:10px;
 }
+.header_links:hover{
+  transform: scale(1.2);
+}
+.header_links:active{
+  background-color: red;
+}
 
 .logo_link {
 width: 4rem;
