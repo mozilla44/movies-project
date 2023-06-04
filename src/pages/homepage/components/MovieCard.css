@@ -7,19 +7,19 @@
   max-width: 1400px;
   margin: 0px auto;
   padding: 20px 10px;
+  text-decoration: none;
+  color: black;
 }
 
 .movie-card {
   width: 200px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
   padding: 10px;
   text-align: center;
   margin: 10px;
 }
 
-.movie-card:hover{
- background-color: lightblue;
+.movie-card:hover {
+  background-color: lightblue;
 }
 
 .movie-card .movie-image {
@@ -35,11 +35,12 @@
   font-size: 18px;
 }
 
-.movie-card p{
+.movie-card p {
   margin: 5px;
 }
 
 .movie-card .movie-score {
   margin-top: 5px;
-  font-size: 14px;
+  font-size: 20px;
 }
+

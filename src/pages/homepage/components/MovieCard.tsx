@@ -1,4 +1,3 @@
-import React from "react";
 import { MovieType } from "../../../models/Movie";
 import { Link } from "react-router-dom";
 import "./MovieCard.css";
@@ -6,7 +5,6 @@ import { AiFillStar } from "react-icons/ai";
 
 type MovieCardProps = {
   movie: MovieType;
-  
 };
 
 export const MovieCard = ({ movie }: MovieCardProps) => {
@@ -18,10 +16,10 @@ export const MovieCard = ({ movie }: MovieCardProps) => {
     <Link to={`/details/${movie.id}`} className="movie-container">
       <div className="movie-card">
         <img src={imageUrl} alt={movie.title} className="movie-image" />
-        
+
         <h3 className="movie-title">{movie.title}</h3>
         <p className="movie-score">
-          <AiFillStar /> {movie.popularity}
+          <AiFillStar /> {movie.vote_average}
         </p>
 
         {location.pathname === "/upcoming" && (
@@ -29,8 +27,6 @@ export const MovieCard = ({ movie }: MovieCardProps) => {
             <b>Release Date: {movie.release_date}</b>
           </p>
         )}
-
-        <p className="movie-id"> ID: {movie.id}</p>
       </div>
     </Link>
   );

@@ -4,7 +4,7 @@ import { Category } from "../models/Categories";
 import { MovieType } from "../models/Movie";
 import { getCategories } from "../api/categoryAPI";
 import { CategoriesList } from "../pages/homepage/components/CategoriesList";
-import logo from "/images/logo.png";
+import logo from "/logo.ico";
 import "./Header.css";
 
 export const Header = () => {
