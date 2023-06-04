@@ -30,6 +30,7 @@ export const Header = () => {
       <Link to="/" className="logo_link">
         <img src={logo} className="logo" alt="logo"></img>
       </Link>
+      <div className="app_title">Popcorn Watch</div>
 
       <nav className="topnav">
         <Link to="/" className="header_links">
