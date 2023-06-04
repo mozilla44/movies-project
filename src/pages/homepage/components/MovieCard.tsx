@@ -2,6 +2,7 @@ import { MovieType } from "../../../models/Movie";
 import { Link } from "react-router-dom";
 import "./MovieCard.css";
 import { AiFillStar } from "react-icons/ai";
+import { FiCalendar } from "react-icons/fi";
 
 type MovieCardProps = {
   movie: MovieType;
@@ -24,7 +25,7 @@ export const MovieCard = ({ movie }: MovieCardProps) => {
 
         {location.pathname === "/upcoming" && (
           <p className="movie-release-date">
-            <b>Release Date: {movie.release_date}</b>
+            <b><FiCalendar /> {movie.release_date}</b>
           </p>
         )}
       </div>
