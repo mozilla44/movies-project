@@ -2,7 +2,12 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Category } from "../models/Categories";
 import { getCategories } from "../api/categoryAPI";
+
 import logo from "/images/logo.png";
+
+import { CategoriesList } from "../pages/homepage/components/CategoriesList";
+import logo from "/logo.ico";
+
 import "./Header.css";
 
 export const Header = () => {
