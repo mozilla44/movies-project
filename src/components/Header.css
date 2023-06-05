@@ -1,5 +1,4 @@
 header {
-  /* border: 3px solid; */
   background-color: rgb(31, 33, 33);
   position: sticky;
   top: 0;
@@ -7,16 +6,14 @@ header {
   height: 4rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 header img {
-  /* border: 3px solid; */
   max-height: 100%;
 }
 
 .topnav {
-  /* margin: auto; */
-  /*  border: 3px solid; */
   display: flex;
   align-items: center;
   /* align-items: center; */
@@ -24,14 +21,45 @@ header img {
   width: 20%;
   position: fixed;
   height: 4rem;
-
   top: 0%;
   left: 50%;
-  /* bring your own prefixes */
   transform: translate(-50%, 0%);
 }
 
 .topnav a {
   text-decoration: none;
   color: white;
+  transform: scale(1.1);
+
+}
+
+.header_links{
+  border: 3px solid;
+  padding: 0.3rem 1rem 0.3rem 1rem;
+  border-radius:10px;
+}
+.header_links:hover{
+  transform: scale(1.2);
+}
+.header_links:active{
+  background-color: red;
+}
+
+.logo_link {
+width: 4rem;
+height: 4rem;
+text-decoration: none;
+}
+
+.logo_link img{
+  max-width: 100%;
+  max-width: 100%;
+}
+
+.app_title{
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+  position: absolute;
+  left: 7rem;
 }

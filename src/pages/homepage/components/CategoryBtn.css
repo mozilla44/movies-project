@@ -1,3 +1,19 @@
+.category_btn_area{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+}
+
 .category_btn{
-    border: 3px solid red;
+    cursor: pointer; 
+    border: 3px solid;
+  padding: 0.3rem 1rem 0.3rem 1rem;
+  border-radius:10px;
+  background-color: white;
+}
+.category_btn:hover{
+    transform: scale(1.1);
 }

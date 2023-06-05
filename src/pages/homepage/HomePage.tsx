@@ -8,12 +8,16 @@ import {
 } from "../../api/movieAPI";
 import { MovieType } from "../../models/Movie";
 import { MoviesList } from "./components/MoviesList";
-import { CategoriesList } from "./components/CategoriesList";
 import { Category } from "../../models/Categories";
 import { getCategories } from "../../api/categoryAPI";
 import { SearchBar } from "./components/SearchBar";
 import { CategoryBtn } from "./components/CategoryBtn";
+
+import "../homepage/components/CategoryBtn.css"
+import "../../../src/index.css"
+
 import "./HomePage.css";
+
 
 const HomePage = () => {
   const [movies, setMovies] = useState<MovieType[]>([]);
@@ -77,8 +81,13 @@ const HomePage = () => {
   }, [searchQuery]);
 
   return (
+
+    <div>
+      <div className="category_btn_area">
+
     <div className="homepage-container">
       <div className="categories-list">
+
         {categories.map((category) => (
           <CategoryBtn
             key={category.id}
@@ -96,7 +105,7 @@ const HomePage = () => {
         <MoviesList movies={upcomingMovies} />
       )}
 
-      <CategoriesList categories={categories} setCategoryId={setCategoryId} />
+      {/* <CategoriesList categories={categories} setCategoryId={setCategoryId} /> */}
 
       {searchQuery.length > 0 && <MoviesList movies={movies} />}
     </div>
