@@ -4,3 +4,6 @@ html, body {
   padding: 0;
 }
 
+.app-container{
+  height: 100vh;
+}

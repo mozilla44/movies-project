@@ -50,8 +50,6 @@ export const DetailsPage = () => {
         <div className="page-card-rating">Rating : {movie.vote_average}/10</div>
         <div className="page-synopsis-title">Synopsis</div>
         <article className="page-card-synopsis">
-          <br></br>
-          <br></br>
           {movie.overview}
         </article>
       </section>
