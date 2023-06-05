@@ -82,12 +82,11 @@ const HomePage = () => {
 
   return (
 
-    <div>
-      <div className="category_btn_area">
+    
+      
 
     <div className="homepage-container">
-      <div className="categories-list">
-
+<div className="category_btn_area">
         {categories.map((category) => (
           <CategoryBtn
             key={category.id}
@@ -105,7 +104,6 @@ const HomePage = () => {
         <MoviesList movies={upcomingMovies} />
       )}
 
-      {/* <CategoriesList categories={categories} setCategoryId={setCategoryId} /> */}
 
       {searchQuery.length > 0 && <MoviesList movies={movies} />}
     </div>

@@ -5,8 +5,7 @@ import { getCategories } from "../api/categoryAPI";
 
 import logo from "/images/logo.png";
 
-import { CategoriesList } from "../pages/homepage/components/CategoriesList";
-import logo from "/logo.ico";
+
 
 import "./Header.css";
 
