@@ -8,4 +8,6 @@ export interface MovieType {
   overview:string;
   runtime:number;
   production_countries:Array<{name:string}>; // {name: string}[]
+  backdrop_path: string;
+  vote_average:string;
 }
