@@ -1,7 +1,4 @@
 
-
-
-
 .page-container{
 	max-width: fit-content;
 	max-height: fit-content;
@@ -114,6 +111,7 @@ justify-content: center;
 	font: caption;
 	font-size: 2em;
 	
+
 }
 
 .page-synopsis-title{
@@ -125,3 +123,4 @@ justify-content: center;
 	background-color: black;
 	text-align: center;
 }
+
