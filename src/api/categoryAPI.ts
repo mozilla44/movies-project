@@ -1,6 +1,5 @@
 import axios from "axios";
 import { Category } from "../models/Categories";
-import { MovieType } from "../models/Movie";
 
 const API_KEY = import.meta.env.VITE_API_KEY as string;
 

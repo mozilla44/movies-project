@@ -8,9 +8,6 @@
 }
 
 .category_btn{
-   /*  border-radius: 30px;
-    padding: 0.3rem 1rem 0.3rem 1rem; */
-   
     cursor: pointer; 
     border: 3px solid;
   padding: 0.3rem 1rem 0.3rem 1rem;

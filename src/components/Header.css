@@ -1,5 +1,4 @@
 header {
-  /* border: 3px solid; */
   background-color: rgb(31, 33, 33);
   position: sticky;
   top: 0;
@@ -11,13 +10,10 @@ header {
 }
 
 header img {
-  /* border: 3px solid; */
   max-height: 100%;
 }
 
 .topnav {
-  /* margin: auto; */
-  /*  border: 3px solid; */
   display: flex;
   align-items: center;
   /* align-items: center; */
@@ -25,10 +21,8 @@ header img {
   width: 20%;
   position: fixed;
   height: 4rem;
-
   top: 0%;
   left: 50%;
-  /* bring your own prefixes */
   transform: translate(-50%, 0%);
 }
 
