@@ -10,6 +10,7 @@ import logo from "/images/logo.png";
 import "./Header.css";
 
 export const Header = () => {
+  // Unused
   const [categories, setCategories] = useState<Category[]>([]);
   const [isOpen, setIsOpen] = useState(true);
   const Toggle = () => {

@@ -8,6 +8,7 @@ import { MovieType } from "../../models/Movie";
 export const DetailsPage = () => {
   const params = useParams();
   const [movie, setMovie] = useState<null | MovieType>(null);
+  // Remove console logs before delivering a code
   console.log(params);
 
   const getMovie = async () => {
@@ -20,6 +21,9 @@ export const DetailsPage = () => {
   }, []);
 
   if (movie == null) return <p>No movie fetched...</p>;
+  // HTML tags are misused here
+  // Section can be the main container 
+  // and a lot of divs could be <p> or <span>
   return (
     <div className="page-container">
       

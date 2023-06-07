@@ -13,11 +13,12 @@ import { getCategories } from "../../api/categoryAPI";
 import { SearchBar } from "./components/SearchBar";
 import { CategoryBtn } from "./components/CategoryBtn";
 
-import "../homepage/components/CategoryBtn.css"
-import "../../../src/index.css"
+// Why importing these CSS files ? Usually the CSS files are imported in the
+// component file concerned :)
+import "../homepage/components/CategoryBtn.css";
+import "../../../src/index.css";
 
 import "./HomePage.css";
-
 
 const HomePage = () => {
   const [movies, setMovies] = useState<MovieType[]>([]);
@@ -25,6 +26,8 @@ const HomePage = () => {
   const [categoryId, setCategoryId] = useState<number | null>(null);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [upcomingMovies, setUpcomingMovies] = useState<MovieType[]>([]);
+  // It is a misconception to change the location when staying on the same page
+  // You should add state variables and one more useEffect, it is much better
   const location = useLocation();
 
   const getSortedMovies = async () => {
@@ -48,6 +51,10 @@ const HomePage = () => {
       const moviesData = await getAll();
       setMovies(moviesData);
     };
+    // So here you fetch all the movies, the upcoming and trending
+    // But you don't need all the data on app init, juste the trending.
+    // So there is a useless fetch, which is not good for the perfs
+    // And the fetch by category does not need to be in this useEffect
     getMovies();
     getSortedMovies();
     getUpcomingMovies();
@@ -81,12 +88,8 @@ const HomePage = () => {
   }, [searchQuery]);
 
   return (
-
-    
-      
-
     <div className="homepage-container">
-<div className="category_btn_area">
+      <div className="category_btn_area">
         {categories.map((category) => (
           <CategoryBtn
             key={category.id}
@@ -103,7 +106,6 @@ const HomePage = () => {
       {location.pathname === "/upcoming" && (
         <MoviesList movies={upcomingMovies} />
       )}
-
 
       {searchQuery.length > 0 && <MoviesList movies={movies} />}
     </div>
