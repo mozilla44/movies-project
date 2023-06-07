@@ -13,6 +13,11 @@ const App = () => {
       <BrowserRouter>
         <Header />
         <Routes>
+          {/* No, what if you need a 404 page ? 
+          If the user stays on the same page there is no need to change the location
+          It can all be done with the state variables and it is much more performant than rendering 
+          all the page
+           */}
           <Route
             path="/*"
             element={<HomePage />}

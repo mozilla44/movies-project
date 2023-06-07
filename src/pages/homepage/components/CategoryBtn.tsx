@@ -3,6 +3,7 @@ import { MovieType } from "../../../models/Movie";
 
 type CategoryBtnProps = {
     category: Category
+    // You don't use movie prop
     movie?:MovieType
    setCategoryId: (categoryID: number) => void,
     

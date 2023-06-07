@@ -18,6 +18,8 @@ export const getAll = async (): Promise<MovieType[]> => {
     console.log(error);
 
     // Throw a new error indicating the failure to fetch movies
+    // Maybe you don't want your app to crash if there is a fetching error ?
+    // Instead you could have an alert displayed for the user
     throw new Error("Failed to fetch movies"); // or handle the error accordingly
   }
 };
