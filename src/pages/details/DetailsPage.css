@@ -51,7 +51,7 @@ justify-content: center;
 
 .page-card-title{
 	display: flex;
-	font-size: 4.5em;
+	font-size: 3em;
 	padding-right: 200px;
 	font-weight: bold;
 	font-stretch:condensed ;
@@ -64,7 +64,7 @@ justify-content: center;
 	display: flex;
 	clear: both;
 	display: inline-block;
-	font-size: 2.9em;
+	font-size: 1.9em;
 	margin-top: 30px;
 	display: flex;
 	justify-content: flex-start;
@@ -73,28 +73,29 @@ justify-content: center;
 .page-caracteristics{
 	display: flex;
 	flex-direction: row;
-	justify-content: space-evenly;
+	justify-content: flex-start;
+	gap: 1rem;
 	word-spacing: 2px;
 }
 
 .page-card-release{
-	font-size: 2em;
+	font-size: 1em;
 	vertical-align: baseline;
 	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .page-card-genres{
-	font-size: 2em;
+	font-size: 1em;
 	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .page-card-lenght{
-	font-size: 2em;
+	font-size: 1em;
 	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .page-card-rating{
-	font-size: 2em;
+	font-size: 1.5em;
 	text-align: center;
 	margin-top: 3%;
 	margin-right: 80%;
@@ -104,23 +105,22 @@ justify-content: center;
 }
 
 .page-card-synopsis{
-	font-size: 1.3em;
+
+	font-size: 1.5em;
 	text-align: justify;
 	margin-top: 2%;
 	padding: 40px;
-	font: caption;
-	font-size: 2em;
 	
 
 }
 
 .page-synopsis-title{
-	font-weight: bolder;
-	font-size: 2.3em;
+	font-size: 2em;
 	margin-top: 10vh;
 	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 	border-radius: 20px;
 	background-color: black;
 	text-align: center;
 }
+
 
