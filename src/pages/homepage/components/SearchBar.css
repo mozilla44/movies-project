@@ -3,12 +3,7 @@
   justify-content: center;
   position: relative;
   padding: 3rem;
-  background: linear-gradient(
-    286deg,
-    rgba(89, 105, 222, 1) 15%,
-    rgba(199, 110, 231, 1) 42%,
-    rgba(246, 247, 124, 1) 77%
-  );
+  background-color: #d3d3d3;
 }
 
 .search-form {

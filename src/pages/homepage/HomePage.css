@@ -1,7 +1,8 @@
 .homepage-container {
-  background: linear-gradient(
+  /* background: linear-gradient(
     350deg,
     rgba(172, 150, 22, 1) 29%,
     rgba(146, 62, 224, 1) 92%
-  );
+  ); */
+  background-color: #d3d3d3
 }
