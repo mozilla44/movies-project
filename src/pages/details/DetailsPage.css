@@ -12,7 +12,8 @@
 }
 
 .page-description-container{
-	margin-left: 100px;
+	/* margin-left: 100px; */
+	width: 100%;
 }
 
 .page-description-container img{
@@ -33,10 +34,12 @@ justify-content: center;
 } 
 
 .page-card{
-	width: 50%;
-	height: 50%;
-	margin:20px;
+	width: 45rem;
+	height: 45rem;
+	object-fit: cover;
+	margin:2rem;
 	box-shadow:5px 3px 10px black ;
+
 }
 
 
@@ -50,6 +53,7 @@ justify-content: center;
 
 
 .page-card-title{
+	margin-left: 40px;
 	display: flex;
 	font-size: 3em;
 	padding-right: 200px;
@@ -61,6 +65,7 @@ justify-content: center;
 
 .page-card-writer{
 	font-weight: bold;
+	margin-left: 40px;
 	display: flex;
 	clear: both;
 	display: inline-block;
@@ -71,6 +76,7 @@ justify-content: center;
 }
 
 .page-caracteristics{
+	margin-left: 40px;
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-start;
@@ -95,6 +101,7 @@ justify-content: center;
 }
 
 .page-card-rating{
+	margin-left: 40px;
 	font-size: 1.5em;
 	text-align: center;
 	margin-top: 3%;
@@ -116,11 +123,16 @@ justify-content: center;
 
 .page-synopsis-title{
 	font-size: 2em;
-	margin-top: 10vh;
+	margin: auto;
+	margin-top: 6vh;
+	
+	/* width: 80%; */
 	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-	border-radius: 20px;
-	background-color: black;
-	text-align: center;
+	/* border-radius: 20px; */
+	/* background-color: black; */
+	text-align:left;
+	margin-left:40%;
+	
 }
 
 
