@@ -18,8 +18,9 @@
   margin: 10px;
 }
 
+
 .movie-card:hover {
-  background-color: lightblue;
+  background-color: rgb(157, 163, 165);
 }
 
 .movie-card .movie-image {
