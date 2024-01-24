@@ -1,9 +1,9 @@
 .searchbar {
   display: flex;
   justify-content: center;
-  position: relative;
   padding: 3rem;
   background-color: rgb(25, 27, 25);
+  border: 3px solid green;
 }
 
 .search-form {

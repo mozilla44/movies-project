@@ -20,7 +20,8 @@
 
 
 .movie-card:hover {
-  background-color: rgb(157, 163, 165);
+  /* background-color: rgb(157, 163, 165); */
+  transform: scale(1.1);
 }
 
 .movie-card .movie-image {
