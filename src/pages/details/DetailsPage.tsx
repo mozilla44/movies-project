@@ -22,7 +22,6 @@ export const DetailsPage = () => {
   if (movie == null) return <p>No movie fetched...</p>;
   return (
     <div className="page-container">
-      
       <img
         src={"https://image.tmdb.org/t/p/w200" + movie.poster_path}
         alt="Dune"
@@ -40,7 +39,10 @@ export const DetailsPage = () => {
         </div>
         <br></br>
         <section className="page-caracteristics">
-          <div className="page-card-release"> Release: {movie.release_date} </div>
+          <div className="page-card-release">
+            {" "}
+            Release: {movie.release_date}{" "}
+          </div>
           <div className="page-card-genres">
             {movie.genres.map((g) => g.name).join(", ")}
           </div>
@@ -49,9 +51,7 @@ export const DetailsPage = () => {
 
         <div className="page-card-rating">Rating : {movie.vote_average}/10</div>
         <div className="page-synopsis-title">Synopsis</div>
-        <article className="page-card-synopsis">
-          {movie.overview}
-        </article>
+        <article className="page-card-synopsis">{movie.overview}</article>
       </section>
     </div>
   );
