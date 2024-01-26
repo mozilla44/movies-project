@@ -22,26 +22,40 @@ export const DetailsPage = () => {
   if (movie == null) return <p>No movie fetched...</p>;
   return (
     <div>
-    <div className="page-container">
-      <img src={"https://image.tmdb.org/t/p/w780" + movie.backdrop_path} alt="background" className="details-background"/>
-      <section className="poster-section">
-        <img src={"https://image.tmdb.org/t/p/w780" + movie.poster_path} alt="poster" className="poster"/>
-      </section>
-      
-      <section className="details-section">
-        
-      </section>
-      
+      <div className="page-container">
+        <img
+          src={"https://image.tmdb.org/t/p/w780" + movie.backdrop_path}
+          alt="background"
+          className="details-background"
+        />
+        <section className="poster-section">
+          <img
+            src={"https://image.tmdb.org/t/p/w780" + movie.poster_path}
+            alt="poster"
+            className="poster"
+          />
+        </section>
 
+        <section className="details-section">
+          <h1 className="details-name"> {movie.title}</h1>
+          <div className="details-country">{movie.production_countries[0].name}{" "}</div>
+          <div className="details-release">{" "}Release: {movie.release_date}{" "}</div>
+          <div className="details-genres">{movie.genres.map((g) => g.name).join(", ")}</div>
+          <div className="details-lenght">{movie.runtime} minutes</div>
+          <div className="page-card-rating">Rating : {movie.vote_average}/10</div>
+          <div className="synopsis-title">Synopsis</div>
+          <article className="details-synopsis">{movie.overview}</article>
 
+        </section>
       </div>
-      </div>
+    </div>
   );
 };
 
 export default DetailsPage;
 
-{/* <div className="page-container">
+{
+  /* <div className="page-container">
   <img
     src={"https://image.tmdb.org/t/p/w780" + movie.backdrop_path}
     alt="background"
@@ -71,6 +85,7 @@ export default DetailsPage;
     <article className="page-card-synopsis">{movie.overview}</article>
   </section>
 </div>;
- */}
+ */
+}
 
- //genre
+//genre
