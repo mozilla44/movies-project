@@ -44,7 +44,7 @@ export const DetailsPage = () => {
           <div className="details-lenght">{movie.runtime} minutes</div>
           <div className="page-card-rating">Rating : {movie.vote_average}/10</div>
           <meter id="rating-meter" min="0" max="10" value={movie.vote_average}></meter>
-          <h2 className="synopsis-title">Synopsis</h2>
+          <h2 className="synopsis-title">Synopsis: </h2>
           <article className="details-synopsis">{movie.overview}</article>
 
         </section>
