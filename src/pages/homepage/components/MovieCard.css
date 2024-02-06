@@ -16,11 +16,15 @@
   padding: 10px;
   text-align: center;
   margin: 10px;
+  transition:0.09s;
+  transition-timing-function: ease-in-out;
+  
 }
 
 
 .movie-card:hover {
-  background-color: rgb(157, 163, 165);
+  /* background-color: rgb(157, 163, 165); */
+  transform: scale(1.1);
 }
 
 .movie-card .movie-image {
@@ -47,3 +51,7 @@
   color: white;
 }
 
+.movie-release-date{
+  display :none;
+
+}

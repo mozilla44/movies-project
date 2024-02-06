@@ -70,6 +70,7 @@ export const getMovieById = async (movieId:string|undefined) => {
   try{
     const movieByIdUrl = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=en-US`
     const response = await axios.get<MovieType>(movieByIdUrl);
+    console.log(movieByIdUrl);
     return response.data;
   } catch (error){
     console.log(error)

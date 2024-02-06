@@ -21,40 +21,73 @@ export const DetailsPage = () => {
 
   if (movie == null) return <p>No movie fetched...</p>;
   return (
-    <div className="page-container">
-      
-      <img
-        src={"https://image.tmdb.org/t/p/w200" + movie.poster_path}
-        alt="Dune"
-        className="page-card"
-      />
-      <section className="page-description-container">
+    <div>
+      <div className="page-container">
         <img
           src={"https://image.tmdb.org/t/p/w780" + movie.backdrop_path}
           alt="background"
-          className="page-card-background"
+          className="details-background"
         />
-        <title className="page-card-title"> {movie.title}</title>
-        <div className="page-card-writer">
-          {movie.production_countries[0].name}{" "}
-        </div>
-        <br></br>
-        <section className="page-caracteristics">
-          <div className="page-card-release"> Release: {movie.release_date} </div>
-          <div className="page-card-genres">
-            {movie.genres.map((g) => g.name).join(", ")}
-          </div>
-          <div className="page-card-lenght">{movie.runtime} minutes</div>
+        <section className="poster-section">
+          <img
+            src={"https://image.tmdb.org/t/p/w780" + movie.poster_path}
+            alt="poster"
+            className="poster"
+          />
         </section>
 
-        <div className="page-card-rating">Rating : {movie.vote_average}/10</div>
-        <div className="page-synopsis-title">Synopsis</div>
-        <article className="page-card-synopsis">
-          {movie.overview}
-        </article>
-      </section>
+
+        <section className="details-section">
+          <h1 className="details-name"> {movie.title}</h1>
+          <div className="details-country">{movie.production_countries[0].name}{" "}</div>
+          <div className="details-release">{" "}Release: {movie.release_date}{" "}</div>
+          <div className="details-genres">{movie.genres.map((g) => g.name).join(", ")}</div>
+          <div className="details-lenght">{movie.runtime} minutes</div>
+          <div className="page-card-rating">Rating : {movie.vote_average}/10</div>
+          <meter id="rating-meter" min="0" max="10" value={movie.vote_average}></meter>
+          <h2 className="synopsis-title">Synopsis</h2>
+          <article className="details-synopsis">{movie.overview}</article>
+
+        </section>
+      </div>
     </div>
   );
 };
 
 export default DetailsPage;
+
+{
+  /* <div className="page-container">
+  <img
+    src={"https://image.tmdb.org/t/p/w780" + movie.backdrop_path}
+    alt="background"
+    className="page-card-background"
+  />
+  <img
+    src={"https://image.tmdb.org/t/p/w200" + movie.poster_path}
+    alt="Dune"
+    className="page-card"
+  />
+  <section className="page-description-container">
+    <title className="page-card-title"> {movie.title}</title>
+    <div className="page-card-writer">
+      {movie.production_countries[0].name}{" "}
+    </div>
+    <br></br>
+    <section className="page-caracteristics">
+      <div className="page-card-release"> Release: {movie.release_date} </div>
+      <div className="page-card-genres">
+        {movie.genres.map((g) => g.name).join(", ")}
+      </div>
+      <div className="page-card-lenght">{movie.runtime} minutes</div>
+    </section>
+
+    <div className="page-card-rating">Rating : {movie.vote_average}/10</div>
+    <div className="page-synopsis-title">Synopsis</div>
+    <article className="page-card-synopsis">{movie.overview}</article>
+  </section>
+</div>;
+ */
+}
+
+//genre

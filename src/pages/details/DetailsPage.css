@@ -1,138 +1,74 @@
-
-.page-container{
-	max-width: fit-content;
-	max-height: fit-content;
-	width: 100%;
-	height: 100%;
-	padding: 60px;
-	background-color: rgb(25, 27, 25);
-	display: flex;
-	color: aliceblue;
-	
+.page-container {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  display: flex;
 }
 
-.page-description-container{
-	/* margin-left: 100px; */
-	width: 100%;
+.details-background {
+  height: 100%;
+  width: 100%;
+  filter: brightness(20%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  z-index: -1;
+}
+.white {
+  color: white;
+}
+.poster-section {
+  min-width: 30%;
+  height: 100%;
+}
+.poster-section img {
+  width: 3rem;
+  height: 3rem;
+  height: 100%;
+  width: 100%;
 }
 
-.page-description-container img{
-	position: absolute;
-	width: 70%;
-	height: 100%;
-	opacity: 10%;
-	object-fit: cover;
-	
+.details-section {
+  padding:  1rem 3rem 3rem 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: white;
+  width: 65%;
+  
 }
 
-
-.page-card-background{
-display: flex;
-height: 200px;
-align-items: center;
-justify-content: center;
-} 
-
-.page-card{
-	width: 45rem;
-	height: 45rem;
-	object-fit: cover;
-	margin:2rem;
-	box-shadow:5px 3px 10px black ;
+.details-name {
+  font-size: 3rem;
+  width: 100%;
+  border-bottom: 2px solid white;
+  margin-bottom: 1rem;
+  
+}
+.details-country {
+  font-size: 2rem;
+  margin-bottom: 1rem;
 
 }
-
-
-.page-card-container{
-		padding-top: 10%;
-		width: 100%;
-		height: 100%;
-		margin: 20px;
-		box-shadow: 5px 3px 10px black;
-}
-
-
-.page-card-title{
-	margin-left: 40px;
-	display: flex;
-	font-size: 3em;
-	padding-right: 200px;
-	font-weight: bold;
-	font-stretch:condensed ;
-	border-bottom: 1px solid aliceblue;
-	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-.page-card-writer{
-	font-weight: bold;
-	margin-left: 40px;
-	display: flex;
-	clear: both;
-	display: inline-block;
-	font-size: 1.9em;
-	margin-top: 30px;
-	display: flex;
-	justify-content: flex-start;
-}
-
-.page-caracteristics{
-	margin-left: 40px;
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-start;
-	gap: 1rem;
-	word-spacing: 2px;
-}
-
-.page-card-release{
-	font-size: 1em;
-	vertical-align: baseline;
-	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-.page-card-genres{
-	font-size: 1em;
-	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-.page-card-lenght{
-	font-size: 1em;
-	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-.page-card-rating{
-	margin-left: 40px;
-	font-size: 1.5em;
-	text-align: center;
-	margin-top: 3%;
-	margin-right: 80%;
-	border-radius: 20px;
-	background-color: black;
+.details-release,.details-genres,.details-lenght,.page-card-raiting  {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
 
 }
 
-.page-card-synopsis{
 
-	font-size: 1.5em;
-	text-align: justify;
-	margin-top: 2%;
-	padding: 40px;
-	
-
+.synopsis-title {
+  align-self: center;
+  margin-bottom: 3rem;
+}
+.details-synopsis {
+  font-size: 1.5rem;
 }
 
-.page-synopsis-title{
-	font-size: 2em;
-	margin: auto;
-	margin-top: 6vh;
-	
-	/* width: 80%; */
-	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-	/* border-radius: 20px; */
-	/* background-color: black; */
-	text-align:left;
-	margin-left:40%;
-	
+#rating-meter{
+  width: 10rem;
 }
-
-

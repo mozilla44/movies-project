@@ -34,7 +34,9 @@ export const Header = () => {
       <Link to="/" className="logo_link">
         <img src={logo} className="logo" alt="logo"></img>
       </Link>
-      <div className="app_title">Popcorn Watch</div>
+      <Link to=""><div className="app_title">Popcorn Watch</div></Link>
+      
+      
 
       <nav className="topnav">
         <Link to="/" className="header_links">
