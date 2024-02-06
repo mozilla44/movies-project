@@ -92,9 +92,6 @@ const HomePage = () => {
 
   return (
     <div className="homepage-container">
-      {/* <button className="cat-btn_mobile" onClick={handleClick}>
-        {active ? "Show Categories" : "Hide categories"}
-      </button> */}
       <button id="cat_btn_mobile" onClick={() => {
           toggleVisibility();
           handleClick();
