@@ -13,11 +13,10 @@ import { getCategories } from "../../api/categoryAPI";
 import { SearchBar } from "./components/SearchBar";
 import { CategoryBtn } from "./components/CategoryBtn";
 
-import "../homepage/components/CategoryBtn.css"
-import "../../../src/index.css"
+import "../homepage/components/CategoryBtn.css";
+import "../../../src/index.css";
 
 import "./HomePage.css";
-
 
 const HomePage = () => {
   const [movies, setMovies] = useState<MovieType[]>([]);
@@ -26,6 +25,17 @@ const HomePage = () => {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [upcomingMovies, setUpcomingMovies] = useState<MovieType[]>([]);
   const location = useLocation();
+  const [active, setActive] = useState(false);
+  const handleClick = () => {
+    setActive(!active);
+  };
+  const [isVisible, setIsVisible] = useState(false);
+
+  const toggleVisibility = () => {
+    setIsVisible(!isVisible);
+  };
+
+ 
 
   const getSortedMovies = async () => {
     if (categoryId != null) {
@@ -81,12 +91,16 @@ const HomePage = () => {
   }, [searchQuery]);
 
   return (
-
-    
-      
-
     <div className="homepage-container">
-<div className="category_btn_area">
+      {/* <button className="cat-btn_mobile" onClick={handleClick}>
+        {active ? "Show Categories" : "Hide categories"}
+      </button> */}
+      <button id="cat_btn_mobile" onClick={() => {
+          toggleVisibility();
+          handleClick();
+        }}>{active ? "Hide Categories" : "Show categories"}</button>
+      
+     {isVisible && <div className="category_btn_area">
         {categories.map((category) => (
           <CategoryBtn
             key={category.id}
@@ -94,7 +108,8 @@ const HomePage = () => {
             setCategoryId={setCategoryId}
           />
         ))}
-      </div>
+      </div>}
+      
 
       {location.pathname === "/" && <SearchBar whenSearched={setSearchQuery} />}
 
@@ -103,7 +118,6 @@ const HomePage = () => {
       {location.pathname === "/upcoming" && (
         <MoviesList movies={upcomingMovies} />
       )}
-
 
       {searchQuery.length > 0 && <MoviesList movies={movies} />}
     </div>
