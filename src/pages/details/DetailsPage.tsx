@@ -36,6 +36,7 @@ export const DetailsPage = () => {
           />
         </section>
 
+
         <section className="details-section">
           <h1 className="details-name"> {movie.title}</h1>
           <div className="details-country">{movie.production_countries[0].name}{" "}</div>
@@ -43,7 +44,8 @@ export const DetailsPage = () => {
           <div className="details-genres">{movie.genres.map((g) => g.name).join(", ")}</div>
           <div className="details-lenght">{movie.runtime} minutes</div>
           <div className="page-card-rating">Rating : {movie.vote_average}/10</div>
-          <div className="synopsis-title">Synopsis</div>
+          <meter id="rating-meter" min="0" max="10" value={movie.vote_average}></meter>
+          <h2 className="synopsis-title">Synopsis</h2>
           <article className="details-synopsis">{movie.overview}</article>
 
         </section>

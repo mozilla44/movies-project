@@ -1,5 +1,4 @@
 .page-container {
-  border: 3px solid red;
   height: 100vh;
   width: 100vw;
   position: relative;
@@ -23,22 +22,53 @@
   color: white;
 }
 .poster-section {
-  border: 3px solid hotpink;
   min-width: 30%;
   height: 100%;
 }
 .poster-section img {
   width: 3rem;
   height: 3rem;
+  height: 100%;
+  width: 100%;
 }
 
-.details-section{
-	border: 3px solid lightblue;
-	padding: 3rem;
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-}
-.details-section * {
+.details-section {
+  padding:  1rem 3rem 3rem 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   color: white;
+  width: 65%;
+  
+}
+
+.details-name {
+  font-size: 3rem;
+  width: 100%;
+  border-bottom: 2px solid white;
+  margin-bottom: 1rem;
+  
+}
+.details-country {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+
+}
+.details-release,.details-genres,.details-lenght,.page-card-raiting  {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+
+}
+
+
+.synopsis-title {
+  align-self: center;
+  margin-bottom: 3rem;
+}
+.details-synopsis {
+  font-size: 1.5rem;
+}
+
+#rating-meter{
+  width: 10rem;
 }
