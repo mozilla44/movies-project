@@ -4,9 +4,8 @@
   flex-wrap: wrap;
   background-color: rgb(25, 27, 25);
 }
-  
 
-  .movie-card.hidden{
-    margin-right: 2rem;
-    visibility: hidden;
-  }
+.movie-card.hidden {
+  margin-right: 2rem;
+  visibility: hidden;
+}

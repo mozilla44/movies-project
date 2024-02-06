@@ -33,13 +33,12 @@
 }
 
 .details-section {
-  padding:  1rem 3rem 3rem 3rem;
+  padding: 1rem 3rem 3rem 3rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   color: white;
   width: 65%;
-  
 }
 
 .details-name {
@@ -47,19 +46,21 @@
   width: 100%;
   border-bottom: 2px solid white;
   margin-bottom: 1rem;
-  
 }
 .details-country {
   font-size: 2rem;
   margin-bottom: 1rem;
-
 }
-.details-release,.details-genres,.details-lenght,.page-card-raiting  {
+.details-release,
+.details-genres,
+.details-lenght,.page-card-rating
+{
   font-size: 1.5rem;
   margin-bottom: 1rem;
-
 }
-
+.page-card-rating {
+  font-size: 1.5rem;
+}
 
 .synopsis-title {
   align-self: center;
@@ -69,6 +70,6 @@
   font-size: 1.5rem;
 }
 
-#rating-meter{
+#rating-meter {
   width: 10rem;
 }
