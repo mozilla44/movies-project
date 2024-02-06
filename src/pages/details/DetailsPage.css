@@ -53,8 +53,8 @@
 }
 .details-release,
 .details-genres,
-.details-lenght,.page-card-rating
-{
+.details-lenght,
+.page-card-rating {
   font-size: 1.5rem;
   margin-bottom: 1rem;
 }
@@ -72,4 +72,29 @@
 
 #rating-meter {
   width: 10rem;
+}
+
+@media all and (max-width: 1250px) {
+  .poster-section {
+    display: none;
+  }
+  .page-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .details-release,
+  .details-genres,
+  .details-lenght,
+  .page-card-rating {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .details-background {
+    object-fit: cover;
+  }
+  .synopsis-title {
+margin-bottom: 0.5rem;  }
+.details-synopsis{
+  font-size: 1.3rem;
+}
 }
