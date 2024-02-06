@@ -34,6 +34,8 @@ const HomePage = () => {
   const toggleVisibility = () => {
     setIsVisible(!isVisible);
   };
+  const pathsToHide = ['/upcoming'];
+  const shouldHide = pathsToHide.includes(location.pathname);
 
  
 
@@ -92,10 +94,10 @@ const HomePage = () => {
 
   return (
     <div className="homepage-container">
-      <button id="cat_btn_mobile" onClick={() => {
+     {shouldHide ? null :  <button id="cat_btn_mobile" onClick={() => {
           toggleVisibility();
           handleClick();
-        }}>{active ? "Hide Categories" : "Show categories"}</button>
+        }}>{active ? "Hide Categories" : "Show categories"}</button>}
       
      {isVisible && <div className="category_btn_area">
         {categories.map((category) => (
