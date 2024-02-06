@@ -29,20 +29,19 @@ header img {
 .topnav a {
   text-decoration: none;
   color: white;
-  transform: scale(1.1);
+  /* transform: scale(1.1); */
 
+}
+.topnav a:hover {
+  transform: scale(1.05);
+  
 }
 
 .header_links{
-  border: 3px solid;
-  padding: 0.3rem 1rem 0.3rem 1rem;
-  border-radius:10px;
+ font-size: 1.2rem;
 }
 .header_links:hover{
   transform: scale(1.2);
-}
-.header_links:active{
-  background-color: red;
 }
 
 .logo_link {

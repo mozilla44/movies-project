@@ -4,7 +4,6 @@
   flex-direction: column;
 }
 
-
 #cat_btn_mobile {
   margin: 1rem auto 0 auto;
   text-align: center;
@@ -13,10 +12,8 @@
   font-size: 1rem;
 }
 
-@media all and (min-width: 1250px) {
-  /* #cat_btn_mobile{
-    display: none;
-  } */
+.active_link {
+  
+  font-size: 1.2rem;
+  border-bottom: 2px solid white !important;
 }
-
- 
