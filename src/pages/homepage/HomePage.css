@@ -9,6 +9,8 @@
   margin: 1rem auto 0 auto;
   text-align: center;
   border: none;
+  font-family: inherit;
+  font-size: 1rem;
 }
 
 @media all and (min-width: 1250px) {
