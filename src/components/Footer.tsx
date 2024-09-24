@@ -3,7 +3,7 @@ export const Footer = () => {
 
 return(
     <footer>
-        <div className="copyright">Copyright © 2023 || All Right Reserved</div>
+        <div className="copyright">Copyright ©  || All Right Reserved</div>
     </footer>
 )
 }
