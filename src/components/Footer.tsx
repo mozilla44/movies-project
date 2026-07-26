@@ -3,7 +3,7 @@ export const Footer = () => {
 
 return(
     <footer>
-        <div className="copyright">Copyright ©  || All Right Reserved</div>
+        <div className="copyright">© 2026 Antoine Declercq · Movie data by TMDB</div>
     </footer>
 )
 }

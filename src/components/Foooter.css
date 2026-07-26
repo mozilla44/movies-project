@@ -1,11 +1,1 @@
-footer {
-  bottom: 0;
-  background-color: black;
-  color: white;
-  width: 100vw;
-  height: 3rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.2rem;
-}
+footer { min-height: 4rem; display: grid; place-items: center; padding: 0 1rem; background: #0b0913; border-top: 1px solid rgba(255,255,255,.07); color: #928aa3; font-size: .8rem; text-align: center; }

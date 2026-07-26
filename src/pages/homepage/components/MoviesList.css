@@ -1,11 +1,2 @@
-.movies-list-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  background-color: rgb(25, 27, 25);
-}
-
-.movie-card.hidden {
-  margin-right: 2rem;
-  visibility: hidden;
-}
+.movies-list-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: clamp(1rem, 2vw, 1.5rem); }
+@media (min-width: 850px) { .movies-list-container { grid-template-columns: repeat(5, 1fr); } }
