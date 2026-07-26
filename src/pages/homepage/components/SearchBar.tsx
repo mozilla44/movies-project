@@ -13,7 +13,7 @@ export const SearchBar = ({ whenSearched }: SearchBarProps) => {
         <input
           type="search"
           onChange={(e) => whenSearched(e.target.value)}
-          placeholder="Search movies, actors, stories..."
+          placeholder="Search movies"
           aria-label="Search movies"
         />
       </form>
