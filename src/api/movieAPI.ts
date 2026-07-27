@@ -1,13 +1,7 @@
-import axios from "axios";
 import { MovieType } from "../models/Movie";
+import { tmdbClient } from "./tmdbClient";
 
-const API_KEY = import.meta.env.VITE_API_KEY as string;
-const ACCESS_TOKEN = import.meta.env.VITE_TMDB_READ_ACCESS_TOKEN as string;
-const authParams = API_KEY ? `api_key=${API_KEY}&` : "";
-const localeParams = "language=en-US&region=US";
-const requestConfig = ACCESS_TOKEN
-  ? { headers: { Authorization: `Bearer ${ACCESS_TOKEN}` } }
-  : undefined;
+const localeParams = { language: "en-US", region: "US" };
 
 export type MoviePage = {
   results: MovieType[];
@@ -21,45 +15,43 @@ export type MovieCredits = {
   crew: Array<{ id: number; name: string; job: string }>;
 };
 
-const getMoviePage = async (url: string): Promise<MoviePage> => {
-  const response = await axios.get<MoviePage>(url, requestConfig);
+const getMoviePage = async (
+  path: string,
+  params: Record<string, string | number> = {}
+): Promise<MoviePage> => {
+  const response = await tmdbClient.get<MoviePage>(path, {
+    params: { ...localeParams, ...params },
+  });
   return response.data;
 };
 
 export const getAll = (page = 1): Promise<MoviePage> =>
-  getMoviePage(
-    `https://api.themoviedb.org/3/discover/movie?${authParams}${localeParams}&sort_by=popularity.desc&page=${page}`
-  );
+  getMoviePage("/discover/movie", { sort_by: "popularity.desc", page });
 
 export const getTrending = (page = 1): Promise<MoviePage> =>
-  getMoviePage(
-    `https://api.themoviedb.org/3/trending/movie/day?${authParams}${localeParams}&page=${page}`
-  );
+  getMoviePage("/trending/movie/day", { page });
 
 export const getLatest = (page = 1): Promise<MoviePage> =>
-  getMoviePage(
-    `https://api.themoviedb.org/3/movie/now_playing?${authParams}${localeParams}&page=${page}`
-  );
+  getMoviePage("/movie/now_playing", { page });
 
 export const getUpcoming = (page = 1): Promise<MoviePage> =>
-  getMoviePage(
-    `https://api.themoviedb.org/3/movie/upcoming?${authParams}${localeParams}&page=${page}`
-  );
+  getMoviePage("/movie/upcoming", { page });
 
 export const fetchMoviesByCategory = (categoryId: number, page = 1): Promise<MoviePage> =>
-  getMoviePage(
-    `https://api.themoviedb.org/3/discover/movie?${authParams}${localeParams}&with_genres=${categoryId}&sort_by=popularity.desc&page=${page}`
-  );
+  getMoviePage("/discover/movie", {
+    with_genres: categoryId,
+    sort_by: "popularity.desc",
+    page,
+  });
 
 export const getSearched = (query: string, page = 1): Promise<MoviePage> =>
-  getMoviePage(
-    `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(query)}&${authParams}${localeParams}&page=${page}`
-  );
+  getMoviePage("/search/movie", { query, page });
 
 export const getMovieById = async (movieId: string | undefined) => {
   try {
-    const movieByIdUrl = `https://api.themoviedb.org/3/movie/${movieId}?${authParams}${localeParams}`;
-    const response = await axios.get<MovieType>(movieByIdUrl, requestConfig);
+    const response = await tmdbClient.get<MovieType>(`/movie/${movieId}`, {
+      params: localeParams,
+    });
     return response.data;
   } catch (error) {
     console.log(error);
@@ -68,7 +60,8 @@ export const getMovieById = async (movieId: string | undefined) => {
 };
 
 export const getMovieCredits = async (movieId: string | undefined): Promise<MovieCredits> => {
-  const creditsUrl = `https://api.themoviedb.org/3/movie/${movieId}/credits?${authParams}${localeParams}`;
-  const response = await axios.get<MovieCredits>(creditsUrl, requestConfig);
+  const response = await tmdbClient.get<MovieCredits>(`/movie/${movieId}/credits`, {
+    params: localeParams,
+  });
   return response.data;
 };

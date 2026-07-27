@@ -5,6 +5,7 @@ import { fetchMoviesByCategory, getLatest, getSearched, getTrending, getUpcoming
 import { MovieType } from "../../models/Movie";
 import { Category } from "../../models/Categories";
 import { getCategories } from "../../api/categoryAPI";
+import { hasTmdbCredentials } from "../../api/tmdbClient";
 import { MoviesList } from "./components/MoviesList";
 import { SearchBar } from "./components/SearchBar";
 import { CategoryBtn } from "./components/CategoryBtn";
@@ -64,9 +65,9 @@ const HomePage = () => {
         if (!cancelled) {
           setMovies([]);
           setHasMore(false);
-          setError(import.meta.env.VITE_API_KEY || import.meta.env.VITE_TMDB_READ_ACCESS_TOKEN
+          setError(hasTmdbCredentials
             ? "We couldn’t load movies right now. Please try again shortly."
-            : "Movie data needs a TMDB API key. Add one to .env, then restart the app.");
+            : "Movie data needs a TMDB API key. Add VITE_TMDB_API_KEY to .env, then restart the app.");
         }
       } finally {
         if (!cancelled) {
