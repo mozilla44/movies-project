@@ -64,7 +64,9 @@ const HomePage = () => {
         if (!cancelled) {
           setMovies([]);
           setHasMore(false);
-          setError("We couldn’t load movies right now. Please try again shortly.");
+          setError(import.meta.env.VITE_API_KEY || import.meta.env.VITE_TMDB_READ_ACCESS_TOKEN
+            ? "We couldn’t load movies right now. Please try again shortly."
+            : "Movie data needs a TMDB API key. Add one to .env, then restart the app.");
         }
       } finally {
         if (!cancelled) {
