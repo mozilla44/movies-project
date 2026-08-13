@@ -5,7 +5,6 @@ import { fetchMoviesByCategory, getLatest, getSearched, getTrending, getUpcoming
 import { MovieType } from "../../models/Movie";
 import { Category } from "../../models/Categories";
 import { getCategories } from "../../api/categoryAPI";
-import { hasTmdbCredentials } from "../../api/tmdbClient";
 import { MoviesList } from "./components/MoviesList";
 import { SearchBar } from "./components/SearchBar";
 import { CategoryBtn } from "./components/CategoryBtn";
@@ -22,7 +21,6 @@ const HomePage = () => {
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
   const [filtersOpen, setFiltersOpen] = useState(false);
   const loadMoreRef = useRef<HTMLDivElement>(null);
   const isFetchingRef = useRef(false);
@@ -38,54 +36,35 @@ const HomePage = () => {
   }, [location.pathname]);
 
   useEffect(() => {
-    let cancelled = false;
     const timer = window.setTimeout(async () => {
       isFetchingRef.current = true;
       setLoading(true);
-      setError("");
       if (page === 1) setMovies([]);
 
-      try {
-        const data = searchQuery.trim()
-          ? await getSearched(searchQuery.trim(), page)
-          : categoryId !== null
-            ? await fetchMoviesByCategory(categoryId, page)
-            : isUpcoming
-              ? await getUpcoming(page)
-              : isTrending
-                ? await getTrending(page)
-                : await getLatest(page);
+      const data = searchQuery.trim()
+        ? await getSearched(searchQuery.trim(), page)
+        : categoryId !== null
+          ? await fetchMoviesByCategory(categoryId, page)
+          : isUpcoming
+            ? await getUpcoming(page)
+            : isTrending
+              ? await getTrending(page)
+              : await getLatest(page);
 
-        if (!cancelled) {
-          setMovies((currentMovies) => page === 1 ? data.results : [...currentMovies, ...data.results]);
-          setHasMore(page < Math.min(data.total_pages, 500));
-        }
-      } catch (requestError) {
-        console.error(requestError);
-        if (!cancelled) {
-          setMovies([]);
-          setHasMore(false);
-          setError(hasTmdbCredentials
-            ? "We couldn’t load movies right now. Please try again shortly."
-            : "Movie data needs a TMDB API key. Add VITE_TMDB_API_KEY to .env, then restart the app.");
-        }
-      } finally {
-        if (!cancelled) {
-          setLoading(false);
-          isFetchingRef.current = false;
-        }
-      }
+      setMovies((currentMovies) => page === 1 ? data.results : [...currentMovies, ...data.results]);
+      setHasMore(page < Math.min(data.total_pages, 500));
+      setLoading(false);
+      isFetchingRef.current = false;
     }, searchQuery ? 350 : 0);
 
     return () => {
-      cancelled = true;
       window.clearTimeout(timer);
     };
   }, [categoryId, isTrending, isUpcoming, page, searchQuery]);
 
   useEffect(() => {
     const target = loadMoreRef.current;
-    if (!target || loading || !hasMore || error) return;
+    if (!target || loading || !hasMore) return;
 
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting && !isFetchingRef.current) {
@@ -96,7 +75,7 @@ const HomePage = () => {
 
     observer.observe(target);
     return () => observer.disconnect();
-  }, [error, hasMore, loading]);
+  }, [hasMore, loading]);
 
   const chooseCategory = (id: number | null) => {
     setCategoryId(id);
@@ -124,7 +103,6 @@ const HomePage = () => {
       <section className="hero">
         <div className="hero-copy">
           <h1>Find something to watch.</h1>
-          <p>Browse current releases, popular titles, and upcoming movies in one place.</p>
         </div>
         {!isUpcoming && <SearchBar whenSearched={updateSearch} />}
       </section>
@@ -146,9 +124,9 @@ const HomePage = () => {
           <div><p className="eyebrow">DISCOVER</p><h2>{heading}</h2></div>
           <p className="page-count">{movies.length} movies shown</p>
         </div>
-        {loading && page === 1 ? <div className="loading-state" role="status">Loading the good stuff…</div> : error ? <p className="empty-state">{error}</p> : <MoviesList movies={movies} />}
-        {!loading && !error && movies.length === 0 && <p className="empty-state">No movies matched this search. Try another title or genre.</p>}
-        {!error && movies.length > 0 && <div className="scroll-sentinel" ref={loadMoreRef}>{loading ? "Loading more movies…" : hasMore ? "Keep scrolling for more" : "You’ve reached the end"}</div>}
+        {loading && page === 1 ? <div className="loading-state" role="status">Loading…</div> : <MoviesList movies={movies} />}
+        {!loading && movies.length === 0 && <p className="empty-state" role="alert">No movies found.</p>}
+        {movies.length > 0 && <div className="scroll-sentinel" ref={loadMoreRef}>{loading ? "Loading more movies…" : hasMore ? "Keep scrolling for more" : "You’ve reached the end"}</div>}
       </section>
     </main>
   );
